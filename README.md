@@ -13,7 +13,7 @@ Before running the script, ensure you have the following installed:
 
 ## Steps to Obtain App Password
 
-1. **Login to Your Email Account:**
+1. **Login to Your Email Account: ( for google https://myaccount.google.com )**
    - Go to your email provider's website and log in to your email account.
 
 2. **Access Security Settings:**

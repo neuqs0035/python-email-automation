@@ -2,7 +2,7 @@ import smtplib
 from email.message import EmailMessage
 
 sender_email = input("\nEnter Your ( sender ) Email : ")
-sender_email_pass = input("Enter Your GMAIL Password : ")
+sender_email_pass = input("Enter Your App Password : ")
 
 recievers_email = []
 

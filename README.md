@@ -25,9 +25,9 @@ Before running the script, ensure you have the following installed:
 4. **Generate App Password:**
    - Find the option to generate an "App Password" or "Application-Specific Password" in the security settings.
 
-5. **Select App and Device:**
-   - Choose "Mail" or an appropriate app/device from the list of available options. Some providers allow you to provide a custom name for identification.
-
+5. **Set App Name:**
+   - Set Name to 'python'
+     
 6. **Generate the App Password:**
    - Click on the "Generate" or "Create" button to generate the app password.
 
@@ -38,7 +38,7 @@ Before running the script, ensure you have the following installed:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/bhavya416/python-email-automation.git
+   git clone https://github.com/neuqs0035/python-email-automation.git
    cd python-email-automation
    ```
 2. **Run Script:**

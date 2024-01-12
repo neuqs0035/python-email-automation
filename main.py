@@ -1,29 +1,31 @@
 import smtplib
 from email.message import EmailMessage
 
-sender_email = input("\nEnter Your ( sender ) Email : ")
-sender_email_pass = input("Enter Your App Password : ")
+# Collect sender's email and password
+sender_email = input("\nEnter Your (Sender) Email: ")
+sender_email_pass = input("Enter Your App Password: ")
 
-recievers_email = []
-
+# Collect receivers' emails
+receivers_email = []
 while True:
-    reciever_email = input("\nEnter Reciever Email : ")
-    recievers_email.append(reciever_email)
+    receiver_email = input("\nEnter Receiver Email: ")
+    receivers_email.append(receiver_email)
     
-    add_another = input("\nDo You Wanna Add Another Reciever ? ( y / n ) : ")
+    add_another = input("\nDo You Want to Add Another Receiver? (y/n): ")
     
     if add_another.lower() == "n":
-        print("\nRecievers Email Added ......")
+        print("\nReceivers' Emails Added...")
         break
     elif add_another.lower() != "y":
         print("\nPlease Enter 'n' or 'y' accordingly")
 
-sub = input("\nEnter Subject : ")
+# Collect email subject and body
+subject = input("\nEnter Subject: ")
 body = ""
-print("\nEnter Body : ")
+print("\nEnter Body (Type 'done' on a new line when the message is completed): ")
 
 while True:
-    line = input("Enter 'done' When Message Completed : ")
+    line = input("Enter Message Line: ")
     if line.strip().lower() == 'done':
         break
     body += line + '\n'
@@ -37,16 +39,19 @@ with smtplib.SMTP('smtp.gmail.com', 587) as server:
     server.login(sender_email, sender_email_pass)
 
     # Loop through each receiver and send the email
-    for receiver in recievers_email:
-        em = EmailMessage()
-        em['From'] = sender_email
-        em['To'] = receiver
-        em['Subject'] = sub
-        em.set_content(body)
+    for receiver in receivers_email:
+        email_message = EmailMessage()
+        email_message['From'] = sender_email
+        email_message['To'] = receiver
+        email_message['Subject'] = subject
+        email_message.set_content(body)
 
-        # Send the email
-        server.sendmail(sender_email, receiver, em.as_string())
+        try:
+            # Send the email
+            server.sendmail(sender_email, receiver, email_message.as_string())
 
-        print("Email sent successfully to " + receiver)
+            print(f"\nEmail sent successfully to {receiver}")
+        except Exception as e:
+            print(f"\nError sending email to {receiver}: {e}")
 
 print("\nEmails Sent To All Receivers")
